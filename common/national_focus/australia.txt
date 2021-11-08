@@ -14,7 +14,7 @@
 	
 	default = no
 	
-	continuous_focus_position = { x = 50 y = 1000 }
+	continuous_focus_position = { x = 50 y = 1100 }
 
 	############################
 	### Army Pre War Section ###
@@ -222,12 +222,12 @@
 	}
 
 			focus = {
-		id = AST_doctrine2
-		icon = GFX_goal_generic_army_doctrines
-		prerequisite = { focus = AST_royal_australian_artillery  focus = AST_prepare_militia}
-		x = 1
+		id = AST_dingo
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = AST_motorisation }
+		x = -2
 		y = 1
-		relative_position_id = AST_royal_australian_artillery
+		relative_position_id = AST_motorisation
 
 		cost = 5
 
@@ -250,9 +250,46 @@
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = AST_doctrine2
+				name = AST_RAAC
 				bonus = 1.0
 				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}	
+
+			focus = {
+		id = AST_doctrine2
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = AST_infantry_modernisation  }
+		x = 0
+		y = 1
+		relative_position_id = AST_infantry_modernisation
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 2
 				category = land_doctrine
 			}
 		}
@@ -261,12 +298,13 @@
 				focus = {
 		id = AST_infantry_modernisation
 		icon = GFX_focus_generic_commonwealth_build_infantry
-		prerequisite = { focus = AST_doctrine2  }
-		x = 0
+		prerequisite = { focus = AST_royal_australian_artillery  focus = AST_prepare_militia}
+		
+		x = 1
 		y = 1
-		relative_position_id = AST_doctrine2
+		relative_position_id = AST_royal_australian_artillery
 
-		cost = 5
+		cost = 6
 
 		ai_will_do = {
 			factor = 1
@@ -391,7 +429,7 @@
 		y = 1
 		relative_position_id = AST_military_factories
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -820,7 +858,7 @@
 				uses = 1
 				category = industry
 			}
-			###National Spirit - added production?
+			###National Spirit - Limited Rearnament
 		}
 	}
 
@@ -989,7 +1027,7 @@
 	}
 
 							focus = {
-		id = AST_airbases 
+		id = AST_airbases  ###Airlines
 		icon = GFX_goal_generic_build_airforce
 		prerequisite = { focus = AST_RAAF }
 		x = 2
@@ -1016,12 +1054,22 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = AST_doctrine2
-				bonus = 1.0
-				uses = 1
-				category = marine_tech
-			}
+521 {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+					
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+}
+
+
 		}
 	}
 
@@ -1069,6 +1117,46 @@
 		x = 0
 		y = 1
 		relative_position_id = AST_airbases
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+520 {
+					
+					add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+
+}
+		}
+	}
+
+									focus = {
+		id = AST_naval_bombers 
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = AST_air_defence }
+		x = 0
+		y = 1
+		relative_position_id = AST_air_defence
 
 		cost = 5
 
@@ -1264,17 +1352,1793 @@
 			}	
 			}
 		}
-	}		
+
+								focus = {
+		id = AST_naval_doctrine2
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = AST_destroyers }
+		prerequisite = { focus = AST_naval_bases}
+		x = 1
+		y = 2
+		relative_position_id = AST_naval_doctrine
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			521 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+
+			}	
+			}
+		}		
+	
+	######################
+	###Wartime Military###
+	######################
+
+				focus = {
+		id = AST_sentinel
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AST_RAAC }
+		prerequisite = { focus = AST_wartime_economy}
+		x = 0
+		y = 2
+		relative_position_id = AST_RAAC
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
 	
 	
+				focus = {
+		id = AST_thunderbolt
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AST_sentinel }
+		mutually_exclusive = { focus = AST_import_tanks}
+		mutually_exclusive = { focus = AST_expand_CAC}
 
+		x = -1
+		y = 1
+		relative_position_id = AST_sentinel
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+				focus = {
+		id = AST_mechanise
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AST_thunderbolt }
+		prerequisite = { focus = AST_dingo}
+
+		x = -1
+		y = 1
+		relative_position_id = AST_thunderbolt
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}	
+	
+				focus = {
+		id = AST_import_tanks
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AST_sentinel }
+		mutually_exclusive = {focus = AST_thunderbolt}
+
+		x = 1
+		y = 1
+		relative_position_id = AST_sentinel
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+
+
+				focus = {
+		id = AST_defence_research
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_wartime_economy }
+		
+		x = 5
+		y = 1
+		relative_position_id = AST_wartime_economy
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+					focus = {
+		id = AST_uranium
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_defence_research }
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_defence_research
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
 	
 
+					focus = {
+		id = AST_expand_CAC
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_wartime_economy }
+		prerequisite = {focus = AST_modern_doctrine}
+		mutually_exclusive = { focus = AST_import_planes}	
+		mutually_exclusive = { focus = AST_thunderbolt}			
+		
+		x = -1
+		y = 3
+		relative_position_id = AST_modern_doctrine
 
+		cost = 5
 
+		ai_will_do = {
+			factor = 1
+		}
 
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
 
 	
+					focus = {
+		id = AST_import_planes
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_wartime_economy }
+		prerequisite = {focus = AST_modern_doctrine}
+		mutually_exclusive = { focus = AST_expand_CAC}
+
+		
+		x = 1
+		y = 3
+		relative_position_id = AST_modern_doctrine
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+					focus = {
+		id = AST_RAAF_woomera
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_expand_CAC focus = AST_import_planes }
+
+
+		
+		x = 0
+		y = 4
+		relative_position_id = AST_modern_doctrine
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+						focus = {
+		id = AST_the_bomb
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_uranium  }
+		prerequisite = { focus = AST_RAAF_woomera  }
+
+
+		
+		x = -2
+		y = 1
+		relative_position_id = AST_RAAF_woomera
+
+		cost = 12
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+						focus = {
+		id = AST_commandos
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AST_specialist_training  }
+		
+
+
+		
+		x = 0
+		y = 3
+		relative_position_id = AST_specialist_training
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+							focus = {
+		id = AST_bombers
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_wartime_economy  }
+		
+
+
+		
+		x = -3
+		y = 1
+		relative_position_id = AST_wartime_economy
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+							focus = {
+		id = AST_paratroopers
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_commandos  }
+		prerequisite = { focus = AST_bombers  }
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_bombers
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}	
+
+							focus = {
+		id = AST_steelworks
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_wartime_economy  }
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_wartime_economy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}	
+
+								focus = {
+		id = AST_rationing
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_steelworks  }
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_steelworks
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+									focus = {
+		id = AST_resources
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = AST_steelworks  }
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_steelworks
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+									focus = {
+		id = AST_military_industrial
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = AST_rationing  }
+		prerequisite = { focus = AST_resources  }
+
+		
+
+
+		
+		x = 0
+		y = 2
+		relative_position_id = AST_steelworks
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+									focus = {
+		id = AST_big_fleet
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = AST_naval_doctrine2  }
+		mutually_exclusive = { focus = AST_small_fleet}
+	
+
+		
+
+
+		
+		x = -1
+		y = 2
+		relative_position_id = AST_naval_doctrine2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+										focus = {
+		id = AST_small_fleet
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = AST_naval_doctrine2  }
+		prerequisite = { focus = AST_wartime_economy}
+		mutually_exclusive = { focus = AST_big_fleet}
+
+		
+
+
+		
+		x = 1
+		y = 2
+		relative_position_id = AST_naval_doctrine2
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+	
+										focus = {
+		id = AST_carriers
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = AST_big_fleet  }
+		prerequisite = { focus = AST_naval_bombers}
+		mutually_exclusive = { focus = AST_battleships}
+
+		
+
+
+		
+		x = -2
+		y = 1
+		relative_position_id = AST_big_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+										focus = {
+		id = AST_battleships
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_big_fleet  }
+		mutually_exclusive = { focus = AST_carriers}
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_big_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+										focus = {
+		id = AST_submarines
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_big_fleet  focus = AST_small_fleet}
+
+
+		
+
+
+		
+		x = 1
+		y = 2
+		relative_position_id = AST_big_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+										focus = {
+		id = AST_control_seas
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_submarines  }
+
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_submarines
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = AST_doctrine2
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+
+############################
+### Democratic Political ###					
+############################
+
+
+										focus = {
+		id = AST_democracy
+		icon = GFX_focus_generic_navy_battleship
+		
+
+
+		
+
+
+		
+		x = 32
+		y = 0
+		
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+
+										focus = {
+		id = AST_uk
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_democracy}
+
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+										focus = {
+		id = AST_commonwealth_tech
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_uk}
+
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_uk
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+
+											focus = {
+		id = AST_sail_RN
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = AST_commonwealth_tech}
+
+
+		
+
+
+		
+		x = -2
+		y = 1
+		relative_position_id = AST_commonwealth_tech
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+											focus = {
+		id = AST_imperial_staff
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_commonwealth_tech}
+
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_commonwealth_tech
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+												focus = {
+		id = AST_EATS
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_commonwealth_tech}
+		##Needs WT lock
+
+		
+
+
+		
+		x = -3
+		y = 2
+		relative_position_id = AST_commonwealth_tech
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+	
+
+													focus = {
+		id = AST_desert
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_imperial_staff}
+		
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_imperial_staff
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+													focus = {
+		id = AST_europe
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_desert}
+		mutually_exclusive = { focus = AST_asia}
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_desert
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+													focus = {
+		id = AST_asia
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_desert}
+		mutually_exclusive = { focus = AST_europe}
+		
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_desert
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+													focus = {
+		id = AST_jungle
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_asia}
+		
+		
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_asia
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+													focus = {
+		id = AST_panzers
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_europe}
+		
+		
+
+		
+
+
+		
+		x = 0
+		y = 1
+		relative_position_id = AST_europe
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+													focus = {
+		id = AST_z_special
+		icon = GFX_focus_generic_navy_battleship
+		prerequisite = { focus = AST_panzers focus = AST_jungle}
+		
+		
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_panzers
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+
+														focus = {
+		id = AST_CSIR
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_commonwealth_tech}
+		
+		
+
+		
+
+
+		
+		x = 2
+		y = 1
+		relative_position_id = AST_commonwealth_tech
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+
+														focus = {
+		id = AST_national_security
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_commonwealth_tech}
+		
+		
+
+		
+
+
+		
+		x = 5
+		y = 1
+		relative_position_id = AST_commonwealth_tech
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+														focus = {
+		id = AST_depression
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_democracy}
+		
+		
+
+		
+
+
+		
+		x = 4
+		y = 0
+		relative_position_id = AST_uk
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}	
+
+														focus = {
+		id = AST_steel_exports
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_depression}
+		
+		
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_depression
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+														focus = {
+		id = AST_imperial_trade
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_depression}
+		
+		
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_depression
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+														focus = {
+		id = AST_home_defence
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_national_security}
+		
+		
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_national_security
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+															focus = {
+		id = AST_national_production
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_steel_exports}
+		prerequisite = { focus = AST_national_security}
+		
+		
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_national_security
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+														focus = {
+		id = AST_fight_work_perish
+		icon = GFX_focus_research
+		prerequisite = { focus = AST_home_defence}
+		prerequisite = { focus = AST_national_production}
+		
+		
+
+		
+
+
+		
+		x = -1
+		y = 1
+		relative_position_id = AST_national_production
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}																							
+		
+
+
+
+
+
+
 
 
 
