@@ -124,7 +124,6 @@
 
 		completion_reward = {
 			army_experience = 10
-			##Add National spirit militia, recruitable population +0.7
 			add_tech_bonus = {
 				name = AST_promote_reservists
 				bonus = 1.0
@@ -404,10 +403,10 @@
 
 		completion_reward = {
 			285 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -823,12 +822,9 @@
 		id = AST_economic_mobilisation
 		icon = GFX_focus_generic_industry_3
 		prerequisite = { focus = AST_research1 }
-		available = {
-			OR = {
-				threat > 0.15
-				has_war = yes
-			}
-		}
+		prerequisite = {focus = AST_depression}
+
+		
 		x = 0
 		y = 1
 		relative_position_id = AST_research1
@@ -859,7 +855,16 @@
 				uses = 1
 				category = industry
 			}
-			###National Spirit - Limited Rearnament
+
+
+			if = {
+				limit = { has_idea = AST_great_depression_2 }
+				remove_ideas = AST_great_depression_2
+				add_ideas = AST_great_depression_3
+				
+			}
+
+			
 		}
 	}
 
@@ -1578,7 +1583,8 @@
 				uses = 1
 				technology = mechanised_infantry
 			}
-		###Tank and production cost national spirit 
+		
+			add_ideas = AST_tank_production
 		}
 	}	
 	
@@ -1838,7 +1844,7 @@ focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-### Add national spirit for cheaper bomber production
+		add_ideas = AST_strat_bombers
 		}
 	}	
 
@@ -2318,6 +2324,7 @@ focus = {
 		id = AST_big_fleet
 		icon = GFX_focus_generic_navy_battleship2
 		prerequisite = { focus = AST_naval_doctrine2  }
+		prerequisite = { focus = AST_wartime_economy}
 		mutually_exclusive = { focus = AST_small_fleet}
 		mutually_exclusive = {focus = AST_thunderbolt}
 		mutually_exclusive = {focus = AST_expand_CAC}
@@ -2405,7 +2412,7 @@ focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-### National sprit for a stronger but small navy
+			add_ideas = AST_small_fleet_idea
 		}
 	}
 	
@@ -2616,6 +2623,7 @@ focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			add_political_power = 150
 show_ideas_tooltip = AST_arthur_calwell
 		}
 	}	
@@ -2641,7 +2649,12 @@ show_ideas_tooltip = AST_arthur_calwell
 		}
 
 		available = {
-
+			ENG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = AST_support_the_policy_of_appeasement  ###Fix this
+				}
+			}
 		}
 		
 		bypass = {
@@ -2692,7 +2705,10 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+			modify_tech_sharing_bonus = {
+ 				id = commonwealth_research
+ 				bonus = 0.03
+			}
 		}
 	}	
 
@@ -2710,7 +2726,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		y = 1
 		relative_position_id = AST_commonwealth_tech
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2730,7 +2746,13 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+			navy_experience = 15
+						add_tech_bonus {
+				name = AST_imperial_staff
+				bonus = 1.0
+				uses = 1
+				category = naval_doctrine
+			}
 		}
 	}
 
@@ -2748,7 +2770,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		y = 1
 		relative_position_id = AST_commonwealth_tech
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2768,6 +2790,15 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			army_experience = 5
+
+			add_tech_bonus {
+				name = AST_imperial_staff
+				bonus = 1.0
+				uses = 1
+				category = land_doctrine
+			}
+
 
 		}
 	}
@@ -2806,7 +2837,8 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+			air_experience = 10
+			add_ideas = AST_empire_air_training_scheme
 		}
 	}	
 	
@@ -2845,7 +2877,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+		## Add national spirit, hot acclimitise? 
 		}
 	}
 
@@ -3039,7 +3071,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+				####Add special operations to the intelligence agency
 		}
 	}	
 
@@ -3120,6 +3152,8 @@ show_ideas_tooltip = AST_arthur_calwell
 
 		completion_reward = {
 			add_political_power = 150
+			add_ideas = AST_classify_aliens
+			add_ideas = AST_invest_in_victory
 		}
 	}
 
@@ -3158,6 +3192,20 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			if = {
+				limit = { has_idea = AST_great_depression_1 }
+				remove_ideas = AST_great_depression_1
+				add_ideas = AST_great_depression_2
+			}
+		#	if = {
+		#		limit = { has_idea = AST_great_depression_2 }
+		#		remove_ideas = AST_great_depression_2
+		#		add_ideas = AST_great_depression_3
+				
+		#	}
+
+
+
 
 		}
 	}	
@@ -3244,7 +3292,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+				add_ideas = AST_imperial_trade
 		}
 	}
 
@@ -3277,7 +3325,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+			### Give forts
 		}
 	}
 
@@ -3317,7 +3365,8 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
+			remove_ideas = AST_invest_in_victory
+			add_ideas = AST_invest_in_victory_2
 		}
 	}
 
@@ -3419,10 +3468,10 @@ show_ideas_tooltip = AST_arthur_calwell
 		completion_reward = {
 			add_political_power = 120
 			add_autonomy_ratio = {
-				value = 0.1
+				value = 0.2
 				localization = AST_adopt_westminster
 			}
-			custom_effect_tooltip = available_political_advisor
+
 			
 		}
 	}																								
