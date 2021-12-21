@@ -1,0 +1,7 @@
+AST_purchase_tanks_test = {
+
+
+
+
+    
+}

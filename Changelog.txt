@@ -1,0 +1,29 @@
+AST Rework changelog
+
+- Improved focus tree
+- Slightly modified resources position in AST
+- AST and SAF need not complete abandon westminster focus to become free
+- AST need not complete focus to alter conscription laws
+
+
+To Do:
+Decisions to import tanks and planes
+Effects of home defence focus
+Effects of focusing on Europe/Asia
+
+Add land theorist
+Add more government members 
+Bugs:
+Many government ministers have focus ties
+CAC aircraft developer has no focus ties
+Army Logistics (Expert) has no focus ties
+
+
+Thoughts:
+Economic rework --- to strong --- Tie 2nd drop of great depression to industrial expansion perhaps?
+			---- player may spend far too long there
+Pre war		---- pre war focus tree too long?
+
+Drop war support a bit
+
+Commonwealth support tree is a little lackluster

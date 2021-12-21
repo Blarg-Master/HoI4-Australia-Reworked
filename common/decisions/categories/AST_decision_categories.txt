@@ -1,0 +1,14 @@
+AST_purchase_tanks {
+    priority = 6
+
+    icon = generic_tank
+
+    allowed = {
+        original_tag = AST
+    }
+
+    visible = {
+        original_TAG = AST
+    }
+
+}

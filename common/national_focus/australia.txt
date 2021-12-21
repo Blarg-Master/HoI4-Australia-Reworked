@@ -611,7 +611,7 @@
 		id = AST_SA
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = AST_railway_expansion }
-		x = -3
+		x = -2
 		y = 2
 		relative_position_id = AST_railway_expansion
 
@@ -646,50 +646,50 @@
 			}
 		}
 	}
-					focus = {
-		id = AST_TAS
-		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = AST_railway_expansion }
-		x = -1
-		y = 2
-		relative_position_id = AST_railway_expansion
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			518 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = AST_industrial_expansion_target
-			}
-		}
-	}
+###					focus = {
+###		id = AST_TAS
+###		icon = GFX_goal_generic_construct_infrastructure
+###		prerequisite = { focus = AST_railway_expansion }
+###		x = -1
+###		y = 2
+###		relative_position_id = AST_railway_expansion
+###
+###		cost = 5
+###
+###		ai_will_do = {
+###			factor = 1
+###		}
+###
+###		available = {
+###
+###		}
+###		
+###		bypass = {
+###
+###		}
+###
+###		cancel_if_invalid = yes
+###		continue_if_invalid = no
+###		available_if_capitulated = yes
+###		search_filters = { FOCUS_FILTER_RESEARCH }
+###
+###		completion_reward = {
+###			518 = {
+###				add_extra_state_shared_building_slots = 1
+###				add_building_construction = {
+###					type = infrastructure
+###					level = 1
+###					instant_build = yes
+###				}
+###				set_state_flag = AST_industrial_expansion_target
+###			}
+###		}
+###	}
 					focus = {
 		id = AST_WA
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = AST_railway_expansion }
-		x = 3
+		x = 2
 		y = 2
 		relative_position_id = AST_railway_expansion
 
@@ -728,11 +728,11 @@
 		id = AST_territories
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = AST_railway_expansion }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = AST_railway_expansion
 
-		cost = 5
+		cost = 6
 
 		ai_will_do = {
 			factor = 1
@@ -779,7 +779,7 @@
 		prerequisite = { focus = AST_NSW     }
 		prerequisite = { focus =   AST_QLD   }
 		prerequisite = { focus =     AST_VIC }
-		prerequisite = { focus = AST_SA focus = AST_TAS focus = AST_territories focus = AST_WA}
+		prerequisite = { focus = AST_SA  focus = AST_territories focus = AST_WA}
 		x = 0
 		y = 3
 		relative_position_id = AST_railway_expansion
@@ -2770,7 +2770,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		y = 1
 		relative_position_id = AST_commonwealth_tech
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -2790,14 +2790,9 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 5
-
-			add_tech_bonus {
-				name = AST_imperial_staff
-				bonus = 1.0
-				uses = 1
-				category = land_doctrine
-			}
+			army_experience = 10
+			air_experience = 5
+			navy_experience = 5
 
 
 		}
@@ -2857,7 +2852,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		y = 1
 		relative_position_id = AST_imperial_staff
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2958,88 +2953,14 @@ show_ideas_tooltip = AST_arthur_calwell
 		}
 	}
 
-													focus = {
-		id = AST_jungle
-		icon = GFX_goal_generic_special_forces
-		prerequisite = { focus = AST_asia}
-		
-		
-
-		
 
 
-		
-		x = 0
-		y = 1
-		relative_position_id = AST_asia
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-
-		}
-	}
-
-													focus = {
-		id = AST_panzers
-		icon = GFX_focus_generic_army_tanks2
-		prerequisite = { focus = AST_europe}
-		
-		
-
-		
-
-
-		
-		x = 0
-		y = 1
-		relative_position_id = AST_europe
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-
-		}
-	}
 
 													focus = {
 		id = AST_z_special
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = AST_panzers focus = AST_jungle}
+		prerequisite = { focus = AST_europe focus = AST_asia}
 		
 		
 
@@ -3049,7 +2970,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		
 		x = 1
 		y = 1
-		relative_position_id = AST_panzers
+		relative_position_id = AST_europe
 
 		cost = 10
 
