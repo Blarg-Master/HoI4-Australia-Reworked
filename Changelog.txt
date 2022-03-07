@@ -7,23 +7,50 @@ AST Rework changelog
 
 
 To Do:
-Decisions to import tanks and planes
+Tooltips for more obscure focus events
 Effects of home defence focus
 Effects of focusing on Europe/Asia
-
-Add land theorist
+AI Strategy
+Focus tree categories
 Add more government members 
+Add national spirit for favouring Army,Navy,RAAF
+Construction cost reduction (Timed for a year or so) on battleships/carriers for respective paths?
+Add armyy/navy xp gain nat spirits for commonwealth tree?
+
+Fix Armoured Division being default garrison template!
+
+Later down the line:
+Ahisotrical branches
+- Communist and two Fascist Branches
+- Special espionage operations for Australia
+
+
+
+
 Bugs:
-Many government ministers have focus ties
-CAC aircraft developer has no focus ties
-Army Logistics (Expert) has no focus ties
+Duplicated research and production designers
+AST_uk, opinion modifier and Coronation visit event fix.
 
 
 Thoughts:
-Economic rework --- to strong --- Tie 2nd drop of great depression to industrial expansion perhaps?
-			---- player may spend far too long there
 Pre war		---- pre war focus tree too long?
+Historical democratic path --- convert Great Depression recovery to mission/decision system rather than foci.
+Axe or find purpose for economic mobilisation focus.
+Non-tank version of Army priority? Repurpose commandos focus methinks.
+Is the commonwealth aircraft company nat spirit used by anything right now?
+Bombers and para tech seem kinda useless.
 
-Drop war support a bit
+v0.0.5
+Adding focus tree localisation
+Industry nerf
+v0.0.6
+NSB fix
+Stopgap(?) portraits
+Great depression recovery
+Equiptment purchasing
+1937 Election
 
-Commonwealth support tree is a little lackluster
+
+Vanilla Playthrough
+Enough WS for partial mob in 36
+26 aug 39 --- 36 total factories -- 12 mil - 5 naval - 19 civ

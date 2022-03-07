@@ -1,14 +1,29 @@
 AST_purchase_tanks {
-    priority = 6
+allowed = { 
+    original_tag = AST
+    }
+  visible = {
+      has_completed_focus = AST_import_tanks
+  }  
+}
 
-    icon = generic_tank
-
-    allowed = {
+AST_purchase_planes {
+    allowed= {
         original_tag = AST
     }
-
-    visible = {
-        original_TAG = AST
+    visible = { 
+        has_completed_focus = AST_import_planes
     }
+}
+
+AST_depression_decisions_0 {
+    allowed= {
+        original_tag = AST
+    }
+    visible = { 
+        has_completed_focus = AST_depression
+        
+    }
+    priority = 10
 
 }

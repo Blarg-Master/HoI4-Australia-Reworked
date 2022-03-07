@@ -304,7 +304,7 @@
 		y = 1
 		relative_position_id = AST_royal_australian_artillery
 
-		cost = 6
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -377,10 +377,10 @@
 			focus = {
 		id = AST_military_factories
 		icon = GFX_goal_generic_construct_mil_factory
-		
-		x = 7
-		y = 0
-		
+		prerequisite = { focus = AST_research1 }
+		x = 0
+		y = 1
+		relative_position_id = AST_research1
 
 		cost = 10
 
@@ -424,10 +424,10 @@
 					focus = {
 		id = AST_research1
 		icon = GFX_focus_research
-		prerequisite = { focus = AST_military_factories }
-		x = 0
-		y = 1
-		relative_position_id = AST_military_factories
+		###prerequisite = { focus = AST_military_factories }
+		x = 7
+		y = 0
+		###relative_position_id = AST_military_factories
 
 		cost = 10
 
@@ -821,15 +821,14 @@
 					focus = {
 		id = AST_economic_mobilisation
 		icon = GFX_focus_generic_industry_3
-		prerequisite = { focus = AST_research1 }
-		prerequisite = {focus = AST_depression}
+		prerequisite = { focus = AST_military_factories }
 
 		
 		x = 0
 		y = 1
-		relative_position_id = AST_research1
+		relative_position_id = AST_military_factories
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -855,12 +854,11 @@
 				uses = 1
 				category = industry
 			}
+			add_ideas = AST_australian_arms_production
 
 
 			if = {
-				limit = { has_idea = AST_great_depression_2 }
-				remove_ideas = AST_great_depression_2
-				add_ideas = AST_great_depression_3
+
 				
 			}
 
@@ -1017,7 +1015,7 @@
 				}
 			add_tech_bonus = {
 				name = AST_CAC
-				bonus = 1.0
+				bonus = 0.3
 				uses = 2
 				category = cas_bomber
 				category = light_fighter
@@ -1273,8 +1271,8 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_naval_doctrine
-				bonus = 1.0
-				uses = 1
+				bonus = 0.75
+				uses = 2
 				category = naval_doctrine
 			}
 		}
@@ -1503,6 +1501,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			custom_effect_tooltip = AST_tooltip_tank
 			add_tech_bonus = {
 				name = AST_thunderbolt
 				bonus = 1.0
@@ -1618,6 +1617,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			custom_effect_tooltip = AST_tooltip_buy_tank
 #### Unlock decisions to purchase tanks from major powers
 		}
 	}
@@ -1729,6 +1729,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			custom_effect_tooltip = AST_tooltip_plane
 			add_tech_bonus = {
 				name = AST_expand_CAC
 				bonus = 2.0
@@ -1809,6 +1810,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			custom_effect_tooltip = 
 ### Decisions to purchase aircraft from major powers
 		}
 	}
@@ -2001,7 +2003,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
-
+		###Candidate for 2nd army primacy focus, subject to change
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_commandos
@@ -2264,7 +2266,7 @@ focus = {
 		y = 2
 		relative_position_id = AST_steelworks
 
-		cost = 10
+		cost = 12
 
 		ai_will_do = {
 			factor = 1
@@ -2288,7 +2290,7 @@ focus = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2305,7 +2307,7 @@ focus = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2338,7 +2340,7 @@ focus = {
 		y = 2
 		relative_position_id = AST_naval_doctrine2
 
-		cost = 10
+		cost = 12
 
 		ai_will_do = {
 			factor = 1
@@ -2358,6 +2360,7 @@ focus = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			custom_effect_tooltip = AST_tooltip_boat
 			285 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -2672,6 +2675,44 @@ show_ideas_tooltip = AST_arthur_calwell
 	}
 
 										focus = {
+		id = AST_depression
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = AST_democracy}
+
+
+		
+
+
+		
+		x = 1
+		y = 1
+		relative_position_id = AST_democracy
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			custom_effect_tooltip = AST_tooltip_depression
+		}
+	}	
+
+										focus = {
 		id = AST_commonwealth_tech
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = AST_uk}
@@ -2746,13 +2787,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			navy_experience = 15
-						add_tech_bonus {
-				name = AST_imperial_staff
-				bonus = 1.0
-				uses = 1
-				category = naval_doctrine
-			}
+			navy_experience = 30
 		}
 	}
 
@@ -2770,7 +2805,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		y = 1
 		relative_position_id = AST_commonwealth_tech
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2872,6 +2907,7 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			army_experience = 10
 		## Add national spirit, hot acclimitise? 
 		}
 	}
@@ -3078,144 +3114,8 @@ show_ideas_tooltip = AST_arthur_calwell
 		}
 	}
 
-														focus = {
-		id = AST_depression
-		icon = GFX_focus_generic_industry_1
-		prerequisite = { focus = AST_democracy}
-		
-		
-
-		
 
 
-		
-		x = 4
-		y = 0
-		relative_position_id = AST_uk
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			if = {
-				limit = { has_idea = AST_great_depression_1 }
-				remove_ideas = AST_great_depression_1
-				add_ideas = AST_great_depression_2
-			}
-		#	if = {
-		#		limit = { has_idea = AST_great_depression_2 }
-		#		remove_ideas = AST_great_depression_2
-		#		add_ideas = AST_great_depression_3
-				
-		#	}
-
-
-
-
-		}
-	}	
-
-														focus = {
-		id = AST_steel_exports
-		icon = GFX_focus_generic_steel
-		prerequisite = { focus = AST_depression}
-		
-		
-
-		
-
-
-		
-		x = 1
-		y = 1
-		relative_position_id = AST_depression
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			285 = {
-				
-				limit = { is_in_home_area = yes }
-				add_resource = {
-					type = steel
-					amount = 8
-				}
-				
-			}
-		}
-	}
-
-														focus = {
-		id = AST_imperial_trade
-		icon = GFX_goal_generic_trade
-		prerequisite = { focus = AST_depression}
-		
-		
-
-		
-
-
-		
-		x = -1
-		y = 1
-		relative_position_id = AST_depression
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-				add_ideas = AST_imperial_trade
-		}
-	}
 
 														focus = {
 		id = AST_home_defence
@@ -3327,25 +3227,9 @@ show_ideas_tooltip = AST_arthur_calwell
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			#if effect is there for the tooltips sake
-			if = {
-				limit = { has_idea = AST_great_depression_1 }
-				remove_ideas = AST_great_depression_1
 				add_ideas = AST_all_in
-			}
-			if = {
-				limit = { has_idea = AST_great_depression_2 }
-				remove_ideas = AST_great_depression_2
-				add_ideas = AST_all_in
-				
-			}
-			if = {
-				limit = { has_idea = AST_great_depression_3 }
-				swap_ideas = {
-					remove_idea = AST_great_depression_3
-					add_idea = AST_all_in
-				}
-			}
+
+
 		}
 
 		

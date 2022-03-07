@@ -1,0 +1,620 @@
+AST_purchase_tanks = {
+
+AST_purchase_UK_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            ENG = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = medium_tank_chassis
+					amount = 30
+					producer = ENG
+				}
+
+    }
+}
+AST_purchase_UK_light_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+            ENG = { 
+                democratic > .6
+            }            
+        }    
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = light_tank_chassis
+					amount = 60
+					producer = ENG
+				}
+
+    }
+}
+AST_purchase_UK_heavy_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+            ENG = { 
+                democratic > .6
+            }            
+        }    
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = heavy_tank_chassis
+					amount = 30
+					producer = ENG
+				}
+
+    }
+}
+
+
+AST_purchase_USA_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+        threat > .6
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+            USA = { 
+                democratic > .6
+            }            
+        }    
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = medium_tank_chassis
+					amount = 60
+					producer = USA
+				}
+
+    }
+}
+AST_purchase_USA_light_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+        threat > .6
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+            USA = { 
+                democratic > .6
+            }              
+        }    
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = light_tank_chassis
+					amount = 120
+					producer = USA
+				}
+
+    }
+}
+AST_purchase_USA_heavy_tank = { 
+    icon = generic_tank
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            
+            has_opinion = {
+                target = USA
+                value > 24
+            }
+        }
+        threat > .6
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+            USA = { 
+                democratic > .6
+            }              
+        }
+            
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 8
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = heavy_tank_chassis
+					amount = 60
+					producer = USA
+				}
+
+    }
+}
+
+    
+}
+
+AST_purchase_planes = {
+
+    AST_purchase_UK_fighter = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            ENG = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = fighter_equipment
+					amount = 50
+					producer = ENG
+				}
+
+    }
+}
+
+    AST_purchase_UK_CAS = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            ENG = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = CAS_equipment
+					amount = 50
+					producer = ENG
+				}
+
+    }
+}
+
+    AST_purchase_UK_TAC = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        ENG = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            ENG = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = ENG
+        NOT = { has_war_with = ENG}
+    }
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = tac_bomber_equipment
+					amount = 50
+					producer = ENG
+				}
+
+    }
+}
+
+    AST_purchase_USA_fighter = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            USA = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = fighter_equipment
+					amount = 50
+					producer = USA
+				}
+
+    }
+}
+
+    AST_purchase_USA_CAS = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            USA = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = CAS_equipment
+					amount = 50
+					producer = USA
+				}
+
+    }
+}
+
+    AST_purchase_USA_TAC = { 
+    icon = generic_air
+
+    available = {
+        original_tag = AST
+
+        USA = {
+            has_opinion = {
+                target = ROOT
+                value > 24
+            }
+        }
+    
+    }
+    cost = 15
+    fire_only_once = no
+    days_remove = 60
+    day_re_enable = 60
+
+    visible = {
+        
+       AST = {
+            democratic > .6
+
+            USA = { 
+                democratic > .6
+            }
+        }
+        
+            
+ 
+        country_exists = USA
+        NOT = { has_war_with = USA}
+    }
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+    ###Add AI will do
+
+    complete_effect = {
+
+				add_equipment_to_stockpile = {
+					type = tac_bomber_equipment
+					amount = 50
+					producer = USA
+				}
+
+    }
+}
+
+    
+}

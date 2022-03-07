@@ -1,0 +1,273 @@
+AST_depression_decisions_0 = { 
+
+AST_depression_mission_0 = {
+    icon = generic_economy
+    days_mission_timeout = 400
+    is_good = yes
+    available = { 
+        NOT = {
+            has_idea=AST_great_depression_1}
+    }
+    visible = {
+        AND = {
+        has_completed_focus = AST_depression
+        has_idea = AST_great_depression_1}
+    }
+    fire_only_once = yes
+    modifier = {
+
+    }
+    timeout_effect = {
+        remove_ideas = AST_great_depression_1
+        add_ideas = AST_great_depression_2
+        activate_mission = AST_depression_mission_1
+        
+    }
+    remove_effect = {
+
+    }
+
+}
+
+AST_depression_mission_1 = {
+    icon = generic_economy
+    days_mission_timeout = 440
+    is_good = yes
+    allowed = {
+        always = no
+    }
+    available = {
+
+    }
+    visible = { 
+              NOT = {
+                 has_idea=AST_great_depression_1
+             }
+         }
+    fire_only_once = yes
+    modifier = {
+
+    }
+    timeout_effect = {
+        remove_ideas = AST_great_depression_2
+        add_ideas = AST_great_depression_3
+        activate_mission = AST_depression_mission_2
+        
+    }
+    remove_effect = {
+
+    }     
+}
+AST_depression_mission_2 = {
+    icon = generic_economy
+    days_mission_timeout = 460
+    is_good = yes
+    allowed = {
+        always = no
+    }
+    available = {
+
+        }
+    visible = { 
+              NOT = {
+                AND = {
+                has_idea=AST_great_depression_1
+                 has_idea=AST_great_depression_2
+                }
+             }
+         }
+    fire_only_once = yes
+    modifier = {
+
+    }
+    timeout_effect = {
+        remove_ideas = AST_great_depression_3
+        
+    }
+    remove_effect = {
+
+    }     
+}
+
+
+
+
+AST_income_tax_decision = {
+    icon = generic_economic_increase
+    available = {
+        AND = {
+        has_idea = AST_great_depression_1
+        original_tag = AST
+        }
+    }
+    cost = 15
+    fire_only_once = yes
+    visible = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_completed_focus = AST_depression
+        }
+    }
+    ##AI WILL DO
+    days_remove = 0
+    complete_effect = {
+        add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -30
+            
+        }
+    }
+}
+
+###GENERIC ACTIONS
+
+
+
+
+###UAP ACTIONS
+AST_budget_cuts_decision = {
+    icon = generic_economic_increase
+    available = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_country_leader = {
+            name = "Joseph Lyons"
+            ruling_only = yes
+        }
+        }
+    }
+    cost = 10
+    fire_only_once = no
+    visible = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_completed_focus = AST_depression
+        }
+    }
+    ##AI WILL DO
+    days_remove = 60
+    day_re_enable = 60
+    modifier = {
+        stability_factor = -0.1
+    }
+    complete_effect = {
+        add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -60
+            
+        }
+    }
+}
+AST_tariffs_decision = {
+    icon = generic_economic_increase
+    available = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_country_leader = {
+            name = "Joseph Lyons"
+            ruling_only = yes
+        }
+        }
+    }
+    cost = 10
+    fire_only_once = no
+    visible = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_completed_focus = AST_depression
+        }
+    }
+    ##AI WILL DO
+    days_remove = 60
+    day_re_enable = 60
+    modifier = {
+        trade_opinion_factor = -0.35
+    }    
+    complete_effect = {
+        add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -60
+            
+        }
+    }
+}
+
+
+###LABOR ACTIONS
+AST_wellfare_decision = {
+    icon = generic_economic_increase
+    available = {
+        AND = {
+        has_idea = AST_great_depression_1
+                has_country_leader = {
+            name = "John Curtin"
+            ruling_only = yes
+        }
+        }
+    }
+    cost = 10
+    fire_only_once = no
+    visible = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_completed_focus = AST_depression
+        }
+    }
+    ##AI WILL DO
+    days_remove = 60
+    day_re_enable = 60
+    modifier = {
+        consumer_goods_factor = 0.05
+    }    
+    complete_effect = {
+        add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -80
+            
+        }
+    }
+}
+AST_civil_works_decision = {
+    icon = generic_economic_increase
+    available = {
+        AND = {
+        has_idea = AST_great_depression_1
+                has_country_leader = {
+            name = "John Curtin"
+            ruling_only = yes
+        }
+        }
+    }
+    cost = 10
+    fire_only_once = no
+    visible = {
+        AND = {
+        has_idea = AST_great_depression_1
+        has_completed_focus = AST_depression
+        }
+    }
+    ##AI WILL DO
+    days_remove = 60
+    day_re_enable = 60
+    modifier = {
+        consumer_goods_factor = 0.1
+        production_speed_buildings_factor
+    }    
+    complete_effect = {
+        add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -80
+            
+        }
+    }
+}
+
+
+
+
+}
