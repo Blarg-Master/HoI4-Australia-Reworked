@@ -7,6 +7,8 @@ AST Rework changelog
 
 
 To Do:
+Menzies -> Curtain in 1941
+Alter mod files to cut out duplications -- e.g. ideas
 Tooltips for more obscure focus events
 Effects of home defence focus
 Effects of focusing on Europe/Asia
@@ -23,6 +25,9 @@ Later down the line:
 Ahisotrical branches
 - Communist and two Fascist Branches
 - Special espionage operations for Australia
+Better democratic politics and great depression
+Crisis tree under adopt westminster and national security act - allowing AST to grow in size.
+Unique names for designers
 
 
 
@@ -39,6 +44,7 @@ Axe or find purpose for economic mobilisation focus.
 Non-tank version of Army priority? Repurpose commandos focus methinks.
 Is the commonwealth aircraft company nat spirit used by anything right now?
 Bombers and para tech seem kinda useless.
+Military Industrial focus seems kinda lazy
 
 v0.0.5
 Adding focus tree localisation
@@ -49,8 +55,23 @@ Stopgap(?) portraits
 Great depression recovery
 Equiptment purchasing
 1937 Election
+v0.0.7
+1937 and 1940 elections
+Lyons->Menzies succession
+Some small industrial nerfs
+
 
 
 Vanilla Playthrough
 Enough WS for partial mob in 36
 26 aug 39 --- 36 total factories -- 12 mil - 5 naval - 19 civ
+
+First Mod Playthrough
+
+Industry focuses seem a tad op - maybe fold some into reducing the great depression?
+100% limit anti-depression decisions to one at a time
+Civil works labor decisions has bad localisation
+Elections don't work?
+Great depression gone in feb 38 - final great depression loc looks wrong
+Some strong focuses are 35 days - ones that give factories, research slots etc
+26 Aug 39 - 46 factories - 18 mil - 6 naval - 22 civ

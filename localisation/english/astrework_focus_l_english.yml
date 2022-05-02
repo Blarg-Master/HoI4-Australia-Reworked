@@ -157,3 +157,4 @@ AST_tooltip_plane:0 "§RThis will lock out the ability to focus on other branche
 AST_tooltip_buy_plane:0 "Unlocks decisions to purchase planes from allies."
 AST_tooltip_boat:0 "§RThis will lock out the ability to focus on other branches of our military.§W"
 AST_tooltip_depression:0 "This will unlock decisions for the government to combat the economic crisis"
+AST_tooltip_CAC:0 "Local airlines will give a small benefit to our ecnomic recovery."

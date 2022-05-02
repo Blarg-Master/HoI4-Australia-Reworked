@@ -902,7 +902,7 @@
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -1004,15 +1004,16 @@
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
-
+	
 		completion_reward = {
-			285 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+###			285 = {
+###				add_extra_state_shared_building_slots = 1
+###				add_building_construction = {
+###					type = arms_factory
+###					level = 1
+###					instant_build = yes
+###				}
+###			}
 			add_tech_bonus = {
 				name = AST_CAC
 				bonus = 0.3
@@ -1020,11 +1021,9 @@
 				category = cas_bomber
 				category = light_fighter
 				category = tactical_bomber
-			}				
-		
 			}
-		
-		}
+		}	
+
 	}
 
 							focus = {
@@ -1055,6 +1054,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			
 521 {
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
@@ -1062,16 +1062,39 @@
 					level = 2
 					instant_build = yes
 				}
-					
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
 }
 
-
+		custom_effect_tooltip = AST_tooltip_CAC
 		}
+		hidden_effect = {
+			        if = {
+            limit = {
+        has_idea = AST_great_depression_1
+            }
+                    add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_0
+                days = -60  
+                 }
+        }
+        if = {
+            limit = {
+        has_idea = AST_great_depression_2
+            }
+                    add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_1
+                days = -60  
+                 }
+        }
+        else = {
+                    add_days_mission_timeout = {
+            
+                mission = AST_depression_mission_2
+                days = -60  
+                 }            
+        }
+		}		
 	}
 
 							focus = {
@@ -1199,7 +1222,7 @@
 		y = 0
 		
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -1633,7 +1656,7 @@
 		y = 1
 		relative_position_id = AST_wartime_economy
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -2601,8 +2624,9 @@ focus = {
 										focus = {
 		id = AST_democracy
 		icon = GFX_focus_generic_treaty
+		mutually_exclusive = {focus = AST_anti_imperialism}
 
-		x = 32
+		x = 31
 		y = 0
 		
 
@@ -3279,8 +3303,204 @@ show_ideas_tooltip = AST_arthur_calwell
 
 			
 		}
-	}																								
+	}
+
+
+
+	###### Alt-History focuses
+
+	focus = {
+		id = AST_anti_imperialism
+		icon = GFX_focus_generic_support_the_left_right
+		#prerequisite = {focus = AST_thing}
+		mutually_exclusive = { focus = AST_democracy}
+		x = 40
+		y = 0
+
+		#relative_position_id = {focus = AST_thing}
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
 		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = AST_left
+		icon = GFX_goal_support_communism
+		prerequisite = {focus = AST_anti_imperialism}
+		mutually_exclusive = { focus = AST_right}
+		x = -1
+		y = 1
+
+		relative_position_id = AST_anti_imperialism
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = AST_right
+		icon = GFX_goal_support_fascism
+		prerequisite = {focus = AST_anti_imperialism}
+		mutually_exclusive = { focus = AST_left}
+		x = 1
+		y = 1
+
+		relative_position_id = AST_anti_imperialism
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = AST_ballot
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = {focus = AST_left focus = AST_right}
+		
+		x = -1
+		y = 2
+
+		relative_position_id = AST_anti_imperialism
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = AST_bullet
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = {focus = AST_left focus = AST_right}
+		
+		x = 1
+		y = 2
+
+		relative_position_id = AST_anti_imperialism
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}																												
+	focus = {
+		id = AST_seize_the_means
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = {focus = AST_ballot focus = AST_bullet }
+		x = 0
+		y = 3
+
+		relative_position_id =  AST_anti_imperialism
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+		}
+	}		
 
 
 

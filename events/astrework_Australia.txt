@@ -20,7 +20,7 @@ country_event = {
     desc = rework_australia.2.d
     picture = GFX_report_event_election_vote
 
-    is_triggered_only = yes
+
 
     trigger = {
         tag = AST
@@ -54,3 +54,159 @@ country_event = {
     }
 
 }
+
+country_event = {
+    id = rework_australia.3 ### Great depression improvement 1
+    title = rework_australia.3.t
+    desc = rework_australia.3.d
+    picture = GFX_report_event_ast_depression
+
+    is_triggered_only = yes
+
+    option = {
+        name = rework_australia.3.a
+        activate_mission = AST_depression_mission_1
+        
+    }
+
+}
+country_event = {
+    id = rework_australia.4 ### Great depression improvement 2
+    title = rework_australia.4.t
+    desc = rework_australia.4.d
+    picture = GFX_report_event_ast_depression
+
+    is_triggered_only = yes
+
+    option = {
+        name = rework_australia.4.a
+        activate_mission = AST_depression_mission_2
+        
+    }
+}
+country_event = {
+    id = rework_australia.5 ### Great depression improvement Final
+    title = rework_australia.5.t
+    desc = rework_australia.5.d
+    picture = GFX_report_event_ast_depression
+
+    is_triggered_only = yes
+
+    option = {
+        name = rework_australia.5.a
+    }
+}
+country_event = {
+    id = rework_australia.6 ###The 1940 Election, UAP Previous Victory
+    title = rework_australia.6.t
+    desc = rework_australia.6.d
+    picture = GFX_report_event_ast_troops_landing
+
+
+    trigger = {
+        tag = AST
+        democratic > 0.5
+        date > 1940.9.1
+        date < 1940.11.1
+        NOT = has_country_leader = {
+            name = "John Curtin"
+            ruling_only = yes
+        } 
+    }    
+    option = { ###UAP Victory
+        name = rework_australia.6.a
+        ai_chance = { 
+            factor = 50
+            modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+            }
+        }
+
+    }
+    option = { ###ALP Victory
+        name = rework_australia.6.b
+                ai_chance = { 
+            factor = 50
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+        set_party_name = { ideology = democratic long_name = AST_democratic_labor_party_long name = AST_democratic_labor_party}
+        promote_character = AST_john_curtin
+        
+    }
+
+}
+country_event = { ##Menzies
+    id = rework_australia.7 
+    title = rework_australia.7.t
+    desc = rework_australia.7.d
+    picture = GFX_report_event_ast_troops_landing
+
+
+    trigger = {
+        date = 1939.4.7
+        has_country_leader = {
+            name = "Jospeh Lyons"
+            ruling_only = yes
+        }
+    }
+
+    option = {
+        name = rework_australia.7.a
+        promote_character = AST_robert_g_menzies
+    }
+
+}
+country_event = {
+    id = rework_australia.8 ###The 1940 Election, Labor Previous Victory
+    title = rework_australia.8.t
+    desc = rework_australia.8.d
+    picture = GFX_report_event_ast_troops_landing
+
+    trigger = {
+        tag = AST
+        democratic > 0.5
+        date > 1940.9.1
+        date < 1940.11.1
+        NOT = has_country_leader = {
+            name = "John Curtin"
+            ruling_only = yes
+        } 
+    }    
+    option = { ###UAP Victory
+        name = rework_australia.8.a
+        ai_chance = { 
+            factor = 50
+            modifier = {
+                factor = 100
+                is_historical_focus_on = yes
+            }
+        }
+        set_party_name = { ideology = democratic long_name = AST_democratic_party_long name = AST_democratic_party}
+		AST_robert_g_menzies = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = conservatism
+					expire = "1965.1.1.1"
+					traits = {}
+				}
+			}
+		}        
+
+    }
+    option = { ###ALP Victory
+        name = rework_australia.8.b
+                ai_chance = { 
+            factor = 50
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+        
+        
+    }
